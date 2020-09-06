@@ -35,7 +35,7 @@ kali@kali:~$ ip a
 
 
 ### 2.
-Change the IP address on `eth0` to `192.168.1.1.`
+Change the IP address on `eth0` to `192.168.1.1`.
 
 ---
 
