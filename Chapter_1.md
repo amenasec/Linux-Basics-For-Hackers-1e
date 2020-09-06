@@ -10,7 +10,7 @@
 
 # Chapter 1 Exercise Problems
 
-### 1
+### 1.
 Use the `ls` command from the root (`/`) directory to explore the directory structure of Linux. Move to each of the directories with the `cd` command and run `pwd` to verify where you are in the directory structure.
 
 ---
@@ -97,26 +97,26 @@ root@kali:/var# pwd
 ---
 
 
-### 2
+### 2.
 Use the `whoami` command to verify which user you are logged in as.
 
 ---
 
 ````shell
-root@kali:/var# whoami
-root
+kali@kali:~$ whoami
+kali
 ````
 
 ---
 
 
-### 3
+### 3.
 Use the `locate` command to find wordlists that can be used for password cracking.
 
 ---
 
 ````shell
-root@kali:/var# locate wordlists
+kali@kali:~$ locate wordlists
 /usr/bin/wordlists
 /usr/lib/python3/dist-packages/theHarvester/wordlists
 /usr/share/wordlists
@@ -124,28 +124,40 @@ root@kali:/var# locate wordlists
 /usr/share/amass/wordlists/all.txt
 /usr/share/amass/wordlists/bitquark_subdomains_top100K.txt
 /usr/share/amass/wordlists/deepmagic.com_top500prefixes.txt
---*snip*--
+--snip--
 /var/lib/dpkg/info/wordlists.prerm
 ````
 
 ---
 
 
-### 4
+### 4.
 Use the `cat` command to create a new file and then append to that file. Keep in mind that `>` redirects input to a file and `>>` appends to a file.
 
 ---
 
-
+````shell
+kali@kali:~$ cat > newfile
+This is my new file.
+kali@kali:~$ cat >> newfile
+This is my appendage.
+kali@kali:~$ cat newfile
+This is my new file.
+This is my appendage.
+````
 
 ---
 
 
-### 5
+### 5.
 Create a new directory called `hackerdirectory` and create a new file that directory named `hackedfile`. Now copy that file to your `/root` directory and rename it `secretfile`.
 
 ---
 
-
+````shell
+root@kali:/home/kali# mkdir hackerdirectory
+root@kali:/home/kali# touch hackerdirectory/hackedfile
+root@kali:/home/kali# cp hackerdirectory/hackedfile /root/secretfile
+````
 
 ---
