@@ -169,7 +169,13 @@ Select a new piece of software from github and clone it to your system.
 ---
 
 ````shell
-
+kali@kali:~$ git clone https://github.com/amenasec/Linux-Basics-For-Hackers-1e.git
+Cloning into 'Linux-Basics-For-Hackers-1e'...
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (9/9), done.
+remote: Total 12 (delta 2), reused 11 (delta 1), pack-reused 0
+Unpacking objects: 100% (12/12), 4.55 KiB | 1.14 MiB/s, done.
 ````
 
 ---
