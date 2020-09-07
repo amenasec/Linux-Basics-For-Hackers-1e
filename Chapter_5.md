@@ -42,6 +42,10 @@ Select a file you don't have permission to execute and give yourself execute per
 kali@kali:~$ chmod 777 ~/newfile
 kali@kali:~$ ls -l ~/newfile
 -rwxrwxrwx 1 kali kali 43 Sep  6 13:41 /home/kali/newfile
+
+kali@kali:~$ chmod g-w,o-wx ~/newfile
+kali@kali:~$ ls -l ~/newfile
+-rwxr-xr-- 1 kali kali 43 Sep  6 13:41 /home/kali/newfile
 ````
 
 ---
