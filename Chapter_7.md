@@ -50,7 +50,7 @@ Find a method to change the slash (`/`) to a backslash ('\') in the faux Microso
 ---
 
 ````shell
-kali@kali:~$PS1='C:\\\W> '
+kali@kali:~$ PS1='C:\\\W> '
 C:\~> cd /home
 C:\home>
 ````
@@ -64,7 +64,7 @@ Create a variable names `MYNEWVARIABLE` and put your name in it.
 ---
 
 ````shell
-kali@kali:/home$MYNEWVARIABLE=amenasec
+kali@kali:/home$ MYNEWVARIABLE=amenasec
 ````
 
 ---
@@ -76,7 +76,7 @@ Use `echo` to view the contents of `MYNEWVARIABLE`.
 ---
 
 ````shell
-kali@kali:/home$echo $MYNEWVARIABLE
+kali@kali:/home$ echo $MYNEWVARIABLE
 amenasec
 ````
 
@@ -89,7 +89,7 @@ Export `MYNEWVARIABLE` so that it's available in all environments.
 ---
 
 ````shell
-kali@kali:/home$export MYNEWVARIABLE
+kali@kali:/home$ export MYNEWVARIABLE
 ````
 
 ---
@@ -101,7 +101,7 @@ Use the echo command to view the contents of the `PATH` variable.
 ---
 
 ````shell
-kali@kali:/home$echo $PATH
+kali@kali:/home$ echo $PATH
 /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 ````
 
@@ -114,7 +114,7 @@ Add your home directory to the `PATH` variable so that any binaries in your home
 ---
 
 ````shell
-kali@kali:/home$PATH=$PATH:/home/kali
+kali@kali:/home$ PATH=$PATH:/home/kali
 ````
 
 ---
@@ -126,8 +126,8 @@ Change your `PS1` variable to "World's Greatest Hacker:".
 ---
 
 ````shell
-kali@kali:/home$PS1="World's Greatest Hacker: "
-World's Greatest Hacker: 
+kali@kali:/home$ PS1="World's Greatest Hacker: "
+World's Greatest Hacker:
 ````
 
 ---
