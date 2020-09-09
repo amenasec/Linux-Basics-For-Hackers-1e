@@ -43,10 +43,12 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 Run `iwconfig` and note any wireless network adapters.
 
 ---
+````shell
 root@kali:/home/kali# iwconfig
 lo        no wireless extensions.
 
 eth0      no wireless extensions.
+````
 ---
 
 
