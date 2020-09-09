@@ -110,10 +110,12 @@ Open the `rsyslog.conf` file and change your log rotation to one week.
 
 ````shell
 kali@kali:~$ vi /etc/rsyslog.conf
+--snip--
 ````
 
 ````shell
 kali@kali:~$ vi /etc/logrotate.conf
+--snip--
 ````
 
 ---

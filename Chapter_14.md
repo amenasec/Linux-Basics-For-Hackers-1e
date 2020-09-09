@@ -82,7 +82,8 @@ Connect to your Wi-Fi AP using `nmcli`.
 ---
 
 ````shell
-nmcli dev wifi connect AmenazaFi password @m3n@z@F!
+root@kali:/home/kali# nmcli dev wifi connect AmenazaFi password @m3n@z@F!
+--snip--
 ````
 
 ---

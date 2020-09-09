@@ -85,6 +85,7 @@ Make a physical, bit-by-bit copy of one of your flash drives using the `dd` comm
 
 ````shell
 kali@kali:~$ dd if=/dev/sdb of=/home/kali/flashcopy
+--snip--
 ````
 
 ---

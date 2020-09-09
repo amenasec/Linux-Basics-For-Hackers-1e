@@ -50,6 +50,7 @@ Check for errors on your flash drive with `fsck`.
 
 ````shell
 kali@kali:~$ fsck -p /dev/sdb1
+--snip--
 ````
 
 ---
@@ -62,6 +63,7 @@ Use the `dd` command to copy the entire contents of one flash drive to another, 
 
 ````shell
 kali@kali:~$ dd if=/dev/sdb1 of=/dev/sdc1
+--snip--
 ````
 
 ---

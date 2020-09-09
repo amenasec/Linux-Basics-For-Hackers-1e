@@ -48,6 +48,7 @@ Use the `more` command to display the file `password.lst`.
 
 ````shell
 kali@kali:/usr/share/metasploit-framework/data/wordlists$ more password.lst
+--snip--
 ````
 
 ---
@@ -60,6 +61,7 @@ Use the `less` command to view the file `password.lst`.
 
 ````shell
 kali@kali:/usr/share/metasploit-framework/data/wordlists$ less password.lst
+--snip--
 ````
 
 ---

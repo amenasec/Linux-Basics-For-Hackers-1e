@@ -16,19 +16,24 @@ Find information on your active network interfaces.
 ---
 
 ````shell
-kali@kali:~$ ip a
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host
-       valid_lft forever preferred_lft forever
-2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 00:0c:29:f6:8e:f2 brd ff:ff:ff:ff:ff:ff
-    inet 172.16.194.131/24 brd 172.16.194.255 scope global dynamic noprefixroute eth0
-       valid_lft 1539sec preferred_lft 1539sec
-    inet6 fe80::20c:29ff:fef6:8ef2/64 scope link noprefixroute
-       valid_lft forever preferred_lft forever
+root@kali:/home/kali# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.194.131  netmask 255.255.255.0  broadcast 172.16.194.255
+        inet6 fe80::20c:29ff:fef6:8ef2  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:f6:8e:f2  txqueuelen 1000  (Ethernet)
+        RX packets 20030  bytes 22782431 (21.7 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 9752  bytes 762993 (745.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 141024  bytes 16678770 (15.9 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 141024  bytes 16678770 (15.9 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ````
 
 ---
@@ -40,21 +45,25 @@ Change the IP address on `eth0` to `192.168.1.1`.
 ---
 
 ````shell
-kali@kali:~$ sudo ip addr add 192.168.1.1 dev eth0
-kali@kali:~$ sudo ip addr del 172.16.194.131/32 dev eth0
-kali@kali:~$ ip a
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host
-       valid_lft forever preferred_lft forever
-2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000                                                 
-    link/ether 00:0c:29:f6:8e:f2 brd ff:ff:ff:ff:ff:ff
-    inet 192.168.1.1/32 scope global eth0
-       valid_lft forever preferred_lft forever
-    inet6 fe80::20c:29ff:fef6:8ef2/64 scope link noprefixroute
-       valid_lft forever preferred_lft forever
+root@kali:/home/kali# ifconfig eth0 194.168.1.1/24
+root@kali:/home/kali# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 194.168.1.1  netmask 255.255.255.0  broadcast 194.168.1.255
+        inet6 fe80::20c:29ff:fef6:8ef2  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:f6:8e:f2  txqueuelen 1000  (Ethernet)
+        RX packets 20032  bytes 22782821 (21.7 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 9752  bytes 762993 (745.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 141036  bytes 16683122 (15.9 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 141036  bytes 16683122 (15.9 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ````
 
 ---
@@ -66,21 +75,27 @@ Change your hardware address on `eth0`.
 ---
 
 ````shell
-kali@kali:~$ sudo ip maddr add 11:22:33:44:55:66 dev eth0
-kali@kali:~$ ip maddr
-1:      lo
-        inet  224.0.0.1
-        inet6 ff02::1
-        inet6 ff01::1
-2:      eth0
-        link  01:00:5e:00:00:01
-        link  33:33:00:00:00:01
-        link  33:33:ff:f6:8e:f2
-        link  11:22:33:44:55:66 static
-        inet  224.0.0.1
-        inet6 ff02::1:fff6:8ef2
-        inet6 ff02::1
-        inet6 ff01::1
+root@kali:/home/kali# ifconfig eth0 down
+root@kali:/home/kali# ifconfig eth0 hw ether 00:11:22:33:44:55
+root@kali:/home/kali# ifconfig eth0 up
+root@kali:/home/kali# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 194.168.1.1  netmask 255.255.255.0  broadcast 194.168.1.255
+        inet6 fe80::211:22ff:fe33:4455  prefixlen 64  scopeid 0x20<link>
+        ether 00:11:22:33:44:55  txqueuelen 1000  (Ethernet)
+        RX packets 20033  bytes 22783016 (21.7 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 9756  bytes 763389 (745.4 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 141073  bytes 16696314 (15.9 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 141073  bytes 16696314 (15.9 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ````
 
 ---
@@ -92,7 +107,7 @@ Check whether you have any available wireless interfaces active.
 ---
 
 ````shell
-kali@kali:~$ sudo iwconfig
+root@kali:/home/kali# iwconfig
 lo        no wireless extensions.
 
 eth0      no wireless extensions.
@@ -107,21 +122,25 @@ Reset your IP address to a DHCP-assigned address.
 ---
 
 ````shell
-kali@kali:~$ sudo dhclient eth0
-kali@kali:~$ sudo ip addr del 192.168.1.1/32 dev eth0
-kali@kali:~$ ip a
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host
-       valid_lft forever preferred_lft forever
-2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000                                                 
-    link/ether 00:0c:29:f6:8e:f2 brd ff:ff:ff:ff:ff:ff
-    inet 172.16.194.131/24 brd 172.16.194.255 scope global dynamic eth0
-       valid_lft 1791sec preferred_lft 1791sec
-    inet6 fe80::20c:29ff:fef6:8ef2/64 scope link noprefixroute
-       valid_lft forever preferred_lft forever
+root@kali:/home/kali# dhclient eth0
+root@kali:/home/kali# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.194.132  netmask 255.255.255.0  broadcast 172.16.194.255
+        inet6 fe80::211:22ff:fe33:4455  prefixlen 64  scopeid 0x20<link>
+        ether 00:11:22:33:44:55  txqueuelen 1000  (Ethernet)
+        RX packets 20045  bytes 22784936 (21.7 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 9764  bytes 764752 (746.8 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 141093  bytes 16702920 (15.9 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 141093  bytes 16702920 (15.9 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ````
 
 ---

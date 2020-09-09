@@ -17,6 +17,7 @@ Run `traceroute` to your favorite website. How many hops appear between you and 
 
 ````shell
 kali@kali:~$ traceroute github.com
+--snip--
 ````
 
 ---
