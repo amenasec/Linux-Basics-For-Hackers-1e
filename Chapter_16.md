@@ -124,7 +124,7 @@ Schedule your `MySQLscanner.sh` script to run daily at noon using the shortcuts.
 ---
 
 ````shell
-oot@kali:/home/kali# vi /etc/crontab
+root@kali:/home/kali# vi /etc/crontab
 root@kali:/home/kali# cat /etc/crontab
 # /etc/crontab: system-wide crontab
 # Unlike any other crontab you don't have to run the `crontab'
